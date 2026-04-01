@@ -21,6 +21,39 @@ Bio-Manuscript-Forge 是一个面向计算生物学研究的 Manuscript 规划�
 
 ---
 
+## 📥 安装与使用
+
+### 方式 1：直接使用（推荐）
+
+**不需要安装！** 只需要：
+1. 复制输入模板
+2. 提交给支持此 Pipeline 的 AI 助手
+3. 等待输出
+
+### 方式 2：Clone 仓库（查看示例和文档）
+
+```bash
+# Clone 仓库
+git clone https://github.com/donghongyu2020/bio-manuscript-forge.git
+
+# 进入目录
+cd bio-manuscript-forge
+
+# 查看文档
+cat README.md
+cat INPUT_TEMPLATE.md
+cat ANALYSIS_METHODS.md
+```
+
+### 方式 3：查看在线文档
+
+直接访问 GitHub：
+- **README**: https://github.com/donghongyu2020/bio-manuscript-forge/blob/main/README.md
+- **输入模板**: https://github.com/donghongyu2020/bio-manuscript-forge/blob/main/INPUT_TEMPLATE.md
+- **成功案例**: 本 README 下方
+
+---
+
 ## 🚀 快速开始
 
 ### Step 1: 准备输入
