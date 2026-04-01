@@ -23,34 +23,56 @@ Bio-Manuscript-Forge 是一个面向计算生物学研究的 Manuscript 规划�
 
 ## 📥 安装与使用
 
-### 方式 1：直接使用（推荐）
+### 前置要求
 
-**不需要安装！** 只需要：
-1. 复制输入模板
-2. 提交给支持此 Pipeline 的 AI 助手
-3. 等待输出
+- 已安装 [OpenClaw](https://github.com/openclaw/openclaw)
+- AI 助手已配置 OpenClaw 环境
 
-### 方式 2：Clone 仓库（查看示例和文档）
+### 方式 1：复制到 OpenClaw Skills 目录（推荐）
 
 ```bash
+# 进入 OpenClaw skills 目录
+cd ~/.openclaw/workspace/skills/
+
 # Clone 仓库
 git clone https://github.com/donghongyu2020/bio-manuscript-forge.git
 
-# 进入目录
-cd bio-manuscript-forge
-
-# 查看文档
-cat README.md
-cat INPUT_TEMPLATE.md
-cat ANALYSIS_METHODS.md
+# 重命名为 bio-manuscript-forge
+mv bio-manuscript-forge bio-manuscript-forge 2>/dev/null || true
 ```
 
-### 方式 3：查看在线文档
+### 方式 2：添加到 Extensions 目录
 
-直接访问 GitHub：
-- **README**: https://github.com/donghongyu2020/bio-manuscript-forge/blob/main/README.md
-- **输入模板**: https://github.com/donghongyu2020/bio-manuscript-forge/blob/main/INPUT_TEMPLATE.md
-- **成功案例**: 本 README 下方
+```bash
+# 进入 extensions 目录
+cd ~/.openclaw/extensions/
+
+# Clone 仓库
+git clone https://github.com/donghongyu2020/bio-manuscript-forge.git
+```
+
+### 方式 3：直接使用（无需安装）
+
+如果你只是想尝试，可以直接复制 `skills/bio-manuscript-pipeline/SKILL.md` 的内容给 AI。
+
+---
+
+### 验证安装
+
+```bash
+# 检查 skill 是否存在
+ls ~/.openclaw/workspace/skills/bio-manuscript-forge/skills/bio-manuscript-pipeline/SKILL.md
+```
+
+如果看到文件，说明安装成功！
+
+---
+
+### 卸载
+
+```bash
+rm -rf ~/.openclaw/workspace/skills/bio-manuscript-forge
+```
 
 ---
 
@@ -78,10 +100,6 @@ demo_data: [Demo数据集链接]
 target_journal: [目标期刊，可选，默认 nat-communications]
 num_refine_rounds: [Refine轮数，可选，默认 2]
 ```
-
-### Step 2: 提交给 AI
-
-将填写好的内容发送给支持 Bio-Manuscript-Forge 的 AI 助手。
 
 ### Step 3: 获取输出
 
