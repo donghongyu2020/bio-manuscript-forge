@@ -1,0 +1,203 @@
+# 示例输入
+
+## 四元组输入
+
+```
+topic: 空间多组学整合
+base_work: https://github.com/QiangweiPeng/stVCR
+innovation: 增加 Cross-Attention 模块处理 RNA + ATAC + Protein 多模态数据，支持对角整合（跨切片、跨分辨率）
+demo_data: https://ftp.ncbi.nlm.nih.gov/geo/series/GSEXXX/GSEXXXXX/
+target_journal: nat-communications
+```
+
+## 预期输出
+
+```
+manuscript-plan/
+├── 01_INNOVATION_ASSESSMENT.md
+├── 02_TASK_SYSTEM.md
+├── 03_DATASET_CATALOG.md
+├── 04_METRIC_SYSTEM.md
+├── 05_ANALYSIS_SYSTEM.md
+│
+├── 06_FIGURE_DESIGNS/
+│   ├── FIGURE_1_DESIGN.md
+│   ├── FIGURE_2_DESIGN.md
+│   ├── FIGURE_3_DESIGN.md
+│   ├── FIGURE_4_DESIGN.md
+│   ├── FIGURE_5_DESIGN.md
+│   └── SUPPLEMENTARY_DESIGN.md
+│
+├── 07_MANUSCRIPT_TEXT/
+│   ├── INTRODUCTION.md
+│   ├── RESULTS.md
+│   ├── DISCUSSION.md
+│   └── METHODS.md
+│
+├── 08_CODE_MODIFICATION_PLAN.md
+├── 09_DEMO_VALIDATION.md
+├── 10_ANALYSIS_RESULTS.md
+│
+└── FINAL_MANUSCRIPT_PLAN.md
+```
+
+## 创新性评估预期
+
+```
+搜索策略：
+- 同义变换：15 个变体
+- 搜索平台：PubMed, bioRxiv, arXiv q-bio
+
+搜索结果：
+- 相关工作数量：约 5 篇
+- 已发表论文：3 篇（Nat Methods 1篇, Nat Commun 2篇）
+- 预印本：2 篇
+
+创新性判断：
+- 级别：需要完善
+- 原因：已有 5 篇相关工作，建议聚焦对角整合
+
+修改建议：
+- 方法角度：强调 Cross-Attention 的模态交互能力
+- 任务角度：聚焦对角整合（现有方法未覆盖）
+- 数据角度：使用跨平台数据验证
+```
+
+## 任务体系预期
+
+```
+Level 1：垂直整合
+- 同一细胞的多模态数据整合
+- 数据：RNA + Protein（同一 Xenium 切片）
+- 难度：低
+- Figure 2
+
+Level 2：水平整合
+- 不同切片的空间数据配准整合
+- 数据：多切片 Visium 数据
+- 难度：中
+- Figure 3
+
+Level 3：马赛克整合
+- 部分模态缺失的整合与推断
+- 数据：MISAR-seq（部分细胞部分模态）
+- 难度：高
+- Figure 4
+
+Level 4：对角整合
+- 跨切片、跨模态、跨分辨率的整合
+- 数据：Stereo-seq（高分辨率） + Visium（低分辨率）
+- 难度：最高
+- Figure 5（创新点）
+```
+
+## 数据集预期
+
+```
+Dataset 1: Xenium Breast Cancer
+- 适用：Task 1（垂直整合）
+- 模态：RNA + Protein
+- 来源：10x Genomics 公开数据
+
+Dataset 2: Visium Mouse Brain
+- 适用：Task 2（水平整合）
+- 模态：RNA
+- 来源：GEO: GSEXXXXX
+
+Dataset 3: MISAR-seq E13/E15/E18
+- 适用：Task 3（马赛克整合）
+- 模态：RNA + ATAC
+- 来源：已发表论文
+
+Dataset 4: Stereo-seq Mouse Brain
+- 适用：Task 4（对角整合）
+- 模态：RNA（高分辨率）
+- 来源：公开数据
+```
+
+## 指标体系预期
+
+```
+定量指标：
+- ARI：聚类一致性（主指标）
+- Pearson r：模态相关性（主指标）
+- MSE：重建误差 / 配准误差
+- NMI：聚类一致性（补充）
+
+定性指标：
+- Spatial domain plot：空间分布展示
+- Marker feature plot：Marker 表达展示
+- Latent UMAP：Latent space 可视化
+```
+
+## Figure 1 预期
+
+```
+Panel a: 算法流程图
+- 原有 stVCR 架构（灰色）
+- 新增 Cross-Attention（红色）
+- 数据流清晰标注
+
+Panel b: 数据介绍
+- Proteomics: 蛋白表达测量
+- Transcriptomics: 转录组表达
+- Epigenomics: 表观遗传修饰
+
+Panel c: 任务介绍
+- Vertical Integration
+- Horizontal Integration
+- Mosaic Integration
+- Diagonal Integration
+
+Panel d: 指标介绍
+- ARI: 聚类一致性
+- Pearson r: 模态相关性
+- MSE: 重建误差
+
+Panel e: 分析介绍
+- Clustering: Leiden 职类
+- Marker Visualization: Marker 展示
+- Spatial Statistics: 空间统计
+```
+
+## 论文文案预期
+
+### Introduction 结构
+
+```
+第一段：空间组学技术发展 + 多模态整合重要性
+
+第二段：现有方法回顾
+- MOFA+, Seurat v4, totalVI, SpaMultiVCR, STagate
+- 各方法核心思路
+- 引用文献
+
+第三段：现有方法不足
+- 假设数据完整
+- 忽略复杂整合场景
+- 缺乏生物学验证
+
+第四段：本文方法
+- MultiOmics-Spatial
+- 概念创新：对角整合
+- 算法创新：Cross-Attention + Spatial Alignment
+- 任务创新：跨切片跨分辨率
+
+第五段：意义与应用
+- 技术价值
+- 科学发现价值
+- 方法论贡献
+```
+
+## 代码修改预期
+
+```
+新增文件：
+- src/cross_attention.py: Cross-Attention 模块
+- src/spatial_alignment.py: 空间配准模块
+
+修改文件：
+- src/model.py: 整合新模块
+- src/loss.py: 增加交叉损失项
+- configs/default.yaml: 新增配置参数
+```
