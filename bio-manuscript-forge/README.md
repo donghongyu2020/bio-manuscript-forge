@@ -152,33 +152,28 @@ AI 将执行 Pipeline 并生成以下内容：
 **输入**：
 
 ```
-topic: 组学大模型安全问题 - 防御视角（单细胞 + 空间组学）
+topic: 组学大模型（包含单细胞和空间组学）安全问题 - 侧重于防御
+
 base_work: 
   - 论文: https://www.nature.com/articles/s41421-024-00753-1
   - 代码: https://github.com/BioX-NKU/scBackdoor
-  - 防御方法: https://github.com/XuankunRong/BYE (NeurIPS'25)
 
 innovation: 从攻击视角转向防御视角，将 BYE 方法迁移到组学大模型
-- 算法创新性: 稀疏感知熵计算 + 层级熵分析 + 基因集熵分析，适配组学数据稀疏性
-- 任务: Cell annotation, Perturbation prediction, GRN inference, Spatial domain detection, Multi-omics integration
-- 数据: scBackdoor benchmark (Pancreas, PBMC, Brain), Norman perturbation, BEELINE GRN, Stereo-seq spatial
-- benchmark: scBackdoor 攻击基准 + BEELINE GRN 基准 + Stereo-seq 空间数据
-- 计算指标: 安全指标(ASR, Defense Rate, Detection AUC) + 任务指标(Accuracy, Pearson, F1, ARI, cLISI)
-- 生物学分析手段: 
-  - Marker gene attention recovery (INS, PDX1, MAFA)
-  - Perturbation direction consistency (PDX1 KO → INS↓)
-  - TF-target edge recovery (PDX1→INS)
-  - Spatial domain preservation (CA1/CA3 boundaries)
-  - RNA-ATAC coherence (CD4 expr ↔ promoter)
+- 算法创新性: 将 BYE（NeurIPS'25, https://github.com/XuankunRong/BYE）后门清洗方法适配组学数据
+- 任务: 涵盖单细胞/空间组学大模型的主要任务（cell annotation, perturbation prediction, domain detection 等）
+- 数据: 根据任务自行匹配（如 scBackdoor benchmark, 公开数据集等）
+- benchmark: 至少包含 8 种以上的单细胞和空间组学大模型
+- 计算指标: 安全指标（ASR 攻击成功率等）+ 任务指标（Accuracy, ARI 等）
+- 生物学分析手段: 待探索，可能参考组学大模型论文中的生物学验证方式
 
-demo_data: https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219
-target_journal: nat-communications (冲刺 nat-methods)
+demo_data: https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219?file=34701976
+target_journal: nat-communications（尝试冲刺 nat-methods）
 num_refine_rounds: 2
 ```
 
 **输出**：
 - 26页组会 PPT
-- 6个 Figure 详细设计（每个任务一个图，含安全+生物学分析）
+- 多个 Figure 详细设计（每个任务一个图）
 - 完整论文文案（Introduction, Results, Discussion, Methods）
 
 ---
