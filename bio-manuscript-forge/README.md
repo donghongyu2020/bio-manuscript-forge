@@ -147,27 +147,26 @@ AI 将执行 Pipeline 并生成以下内容：
 
 ## ✅ 成功案例
 
-### 案例：OmicsDefense - 组学大模型安全防御
+### 案例：Spatial Multi-Omics Integration - 边界感知跨模态对齐
 
 **输入**：
 
 ```
-topic: 组学大模型（包含单细胞和空间组学）安全问题 - 侧重于防御
+topic: spatial multi-omics integration
 
 base_work: 
-  - 论文: https://www.nature.com/articles/s41421-024-00753-1
-  - 代码: https://github.com/BioX-NKU/scBackdoor
+  - 论文: https://www.nature.com/articles/s41592-021-01336-8
+  - 代码: https://github.com/broadinstitute/Tangram
 
-innovation: 从攻击视角转向防御视角，将 BYE 方法迁移到组学大模型
-- 算法创新性: 将 BYE（NeurIPS'25, https://github.com/XuankunRong/BYE）后门清洗方法适配组学数据
-- 任务: 涵盖单细胞/空间组学大模型的主要任务（cell annotation, perturbation prediction, domain detection 等）
-- 数据: 根据任务自行匹配（如 scBackdoor benchmark, 公开数据集等）
-- benchmark: 至少包含 8 种以上的单细胞和空间组学大模型
-- 计算指标: 安全指标（ASR 攻击成功率等）+ 任务指标（Accuracy, ARI 等）
-- 生物学分析手段: 待探索，可能参考组学大模型论文中的生物学验证方式
+innovation: cross-modal alignment preserving tissue boundaries
+- 算法创新性: boundary-aware cross-modal alignment
+- 任务: cell annotation, spatial domain detection, cross-modal integration
+- 数据: public spatial transcriptomics + proteomics cohorts
+- 计算指标: ARI, NMI, boundary preservation score
+- 生物学分析手段: marker recovery, pathway enrichment, case studies
 
 demo_data: https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219?file=34701976
-target_journal: nat-communications（尝试冲刺 nat-methods）
+target_journal: nat-methods
 num_refine_rounds: 2
 ```
 
